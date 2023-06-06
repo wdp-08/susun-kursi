@@ -11,15 +11,36 @@
 "use strict";
 
 function generateSeats(row) {
-  // Tulis kode disini
+	let place = []
+	for(let i=0; i<row; i++) {
+		place.push([])
+	}
+
+	return place;
 }
 
 function managePerson(arr, rowSeats) {
-  // Tulis kode disini
+	let place = generateSeats(rowSeats);
+	let row = 0;
+	
+
+	for(let i=0; i<arr.length; i++) {
+		place[row].push(arr[i])
+		if(row < 2) {
+			row++;
+		} 
+    else {
+			row = 0;
+		}
+	}
+
+	printSeats(place);
 }
 
 function printSeats(seats) {
-  // Tulis kode disini
+	for(let i=0; i<seats.length; i++) {
+		console.log(`Baris ${i} : `, seats[i])
+	}
 }
 
 managePerson(["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"], 3);
